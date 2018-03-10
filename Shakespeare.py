@@ -9,7 +9,6 @@ from matplotlib import style
 
 style.use('ggplot')
 
-'''Quote of the day neural net'''
 
 def generate(model,tokenizer,length,seed,N_words):
     input_text = seed
