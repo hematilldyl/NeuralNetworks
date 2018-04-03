@@ -57,15 +57,15 @@ def estimate(test_X,train_X,yhat,xy,test_y,train_y):
     invt_y=(invt_y*4.730348145)+62.4926759
     return yhat,inv_y,xy,invt_y,xTrain,xTest
                  
-'''    
-#COMMENT ONCE WEIGHTS SAVED
-train_X,train_y,test_X,test_y=fetch_data(dataset,700)
-model=model_LSTM(train_X,tanh,0.4)
-model.compile(loss='mae', optimizer='adam')
-model.fit(train_X, train_y, epochs=50, batch_size=100, validation_data=(test_X, test_y), verbose=2, shuffle=False)
-#save(model,'')  
-'''
+def main():
+    train_X,train_y,test_X,test_y=fetch_data(dataset,700)
+    model=model_LSTM(train_X,tanh,0.4)
+    model.compile(loss='mae', optimizer='adam')
+    model.fit(train_X, train_y, epochs=50, batch_size=100, validation_data=(test_X, test_y), verbose=2, shuffle=False)
+    save(model,'')  
 
+if __name__ == "__main__":
+    main();
 
 ''' LOAD JSON
 json_file = open('model.json','r')
